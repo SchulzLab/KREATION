@@ -28,17 +28,23 @@ Example config file is given with this package.
 ##To run the software:
 * Update the config file
 * run the following commands
+
   ```
  	export PATH=/path-to-KREATION/:$PATH
   ```
+
   ```
 	export PATH=/path to cd-hit/:$PATH
   ```
+
 * to run oases pipeline for the assembly:
+
   ```
 	export PATH=/path-to-KREATION/oases:$PATH
   ```
+
 * run the command
+
   ```
 	python KREATION.py -c config_file_path/config.txt -s step_size -r read_length -o Output_file
   ```
