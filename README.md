@@ -17,11 +17,11 @@ Version 0.1
 * cd-hit package (can be downloaded from http://weizhongli-lab.org/cd-hit/download.php)
 
 ##Config file structure
-Line 1: Name of the program to be run
-Line 2: Output file name from the assembly
-Line 3: paramater name and the value of the min kmer
-Line 4: parameter name for the max kmer (leave as blank if there is none)
-Line 5: Rest of the command 
+* Line 1: Name of the program to be run
+* Line 2: Output file name from the assembly
+* Line 3: paramater name and the value of the min kmer
+* Line 4: parameter name for the max kmer (leave as blank if there is none)
+* Line 5: Rest of the command 
 
 Example config file is given with this package.
 
