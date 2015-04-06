@@ -1,11 +1,11 @@
 ##About
-**KREATION** is an algorithm for automatic estimation kmer range for de novo transcriptome assembly.
+**KREATION** is an algorithm for automatic estimation of kmer range for de novo transcriptome assembly.
 It currently features:
-* upper boundary of kmer range for transcriptome assembly
-* config file support to streamline many datasets
+* upper boundary estimation of kmer range for transcriptome assembly
+* config file support to integrate it with many assembly softwares
 
 #####Contact
-For questions or suggestions regarding SOS please contact
+For questions or suggestions regarding KREATION please contact
 
 * Dilip A Durai (ddurai_at_contact.mmci.uni-saarland.de)
 * Marcel H Schulz (mschulz_at_mmci.uni-saarland.de)
