@@ -95,13 +95,12 @@ while i <= rl:
 	if cnt > 2:	
 		s1,t1 = commands.getstatusoutput("Rscript "+cwd+"/src/RegressionKMerSelection.R "+kmer+" "+extended)
 		temp=((t1.split("\n"))[-1]).split(" ");
-		print temp[-1]
-		f.write(str(i)+"	"+str(temp[-1]));
+		f.write(str(i)+"	"+str(temp[-1])+"\n");
 		if temp[-1].strip() != "NaN":		
 			if pval > float(temp[-1].strip()):
 				print "local maxima reached"
 				print "Stopped at k-mer = "+str(int(i)-int(cl1.ss))
-				os.system("mv "+output+"/Cluster/Combined/combine_p.fa "+output+"/Cluster/Final/transcripts.fa")
+				os.system("mv "+output+"/Cluster/Combined/combine_p.fa "+output+"/Final/transcripts.fa")
 				break
 			else:
 				pval=float(temp[-1].strip())
