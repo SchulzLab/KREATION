@@ -3,32 +3,31 @@ De novo assembly of short read sequences is one of the most used methods to stud
 
 We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value to start, KREATION calculates the contribution of each assembly. KREATION stops at a kmer value at which no further assemblies are required.
 
+#####Version
+Version 0.1
+
 #####Contact
 For questions or suggestions regarding KREATION please contact
 
 * Dilip A Durai (ddurai_at_contact.mmci.uni-saarland.de)
 * Marcel H Schulz (mschulz_at_mmci.uni-saarland.de)
 
-#####Version
-Version 0.1
-
-
 ##Requirements
 * cd-hit : clustering software which uses greedy algorithm to iteratively grow clusters. The software can be downloaded from http://weizhongli-lab.org/cd-hit/
 
-#####Download
+##Download
 The software can be downloaded by using the following command
 ```
 	git clone https://github.com/SchulzLab/KREATION
 ```
 
 The downloaded folder should contain the following files/folder:
-*KREATION.py
-*config.txt
-*oases(folder)
-*src(folder)
+*	KREATION.py
+*	config.txt
+*	oases(folder)
+*	src(folder)
 
-###Usage
+##Usage
 
 ```
  	export PATH=/path-to-KREATION/:$PATH
@@ -41,7 +40,7 @@ The downloaded folder should contain the following files/folder:
 `python KREATION.py -c config_file -o complete/path/outputDirectory -s step_size -r read_length`
 
 short | long params | explanation | note
------------|------------|--------
+-----------|------------|--------|---------
 -h | --help | show the help on screen |
 -c | --config | path to the config file (only text file) | required parameter
 -r | --read | read length | required parameter
