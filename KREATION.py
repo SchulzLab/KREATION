@@ -53,11 +53,11 @@ for i in lines:
 			para_min_k=para_min_k.replace("*","")
 			para_min_k=para_min_k.replace("\n","")
 		if(count==3):
-			com_max_k=i.replace("*","")
-			com_max_k=com_max_k.replace("\n","")
-		if(count==4):
 			rest_command=i.replace("*","")
 			rest_command=rest_command.replace("\n","")
+		if(count==4):
+			com_max_k=i.replace("*","")
+			com_max_k=com_max_k.replace("\n","")
 	count=count+1
 
 i = min_k
@@ -80,6 +80,7 @@ while i <= rl:
 	os.system("cd-hit-est -i "+output+"/Cluster/Combined/combine.fa -o "+output+"/Cluster/Combined/combined_clust.fa -c 0.99 -M 2000M -T 10 >> "+output+"/Cluster/Combined/combined_clust_"+str(i)+".log")
 	s,t = commands.getstatusoutput("perl "+cwd+"/src/calculate_extended.pl "+output+"/Cluster/Combined/combined_clust.fa "+str(min_k)+" "+str(i)+" "+str(cl1.ss))
 	ex=t.split("\t")
+	
 	if int(ex[-1]) != 0 or ex[-1]=="NaN":
 		cnt=cnt+1
 		if extended!="":
@@ -95,7 +96,7 @@ while i <= rl:
 	if cnt > 2:	
 		s1,t1 = commands.getstatusoutput("Rscript "+cwd+"/src/RegressionKMerSelection.R "+kmer+" "+extended)
 		temp=((t1.split("\n"))[-1]).split(" ");
-		f.write(str(i)+"	"+str(temp[-1])+"	"+str(ex[-1])"\n");
+		f.write(str(i)+"	"+str(temp[-1])+"	"+str(ex[-1])+"\n");
 		if temp[-1].strip() != "NaN":		
 			if pval > float(temp[-1].strip()):
 				print "local maxima reached"

@@ -1,0 +1,5 @@
+**oases_pipeline.py
+**transcripts.fa
+-m 21
+-d "/home/ddurai/assembly/work/benchmark/analysis/human/Human/SOS/Different_K/Final_Output/SRR332171.fasta_corrected.fa -shortPaired -interleaved" -p "-ins_length 201"
+-M
