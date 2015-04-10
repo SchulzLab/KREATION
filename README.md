@@ -1,8 +1,7 @@
 ##About
-**KREATION** is an algorithm for automatic estimation of kmer range for de novo transcriptome assembly.
-It currently features:
-* upper boundary estimation of kmer range for transcriptome assembly
-* config file support to integrate it with many assembly softwares
+De novo assembly of short read sequences is one of the most used methods to study the RNA-seq. Common applications include sequencing of non-model organisms, cancer or meta transcriptomes. Most of these assemblers use the de Bruijn graph (DBG) as the underlying data structure. A fundamental parameter with large influence on  assembly quality with DBGs is the exact word length k. As such no single kmer value leads to optimal results. Instead, DBGs over different k-mer values are build and the assemblies merged to improve sensitivity. In most of the cases a suboptimal selection of kmer values is used by practitioners which results in suboptimal assembly.
+
+We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value to start, KREATION calculates the contribution of each assembly resulting from a kmer. KREATION stops at a kmer value at which no further assemblies are required.
 
 #####Contact
 For questions or suggestions regarding KREATION please contact
@@ -13,8 +12,20 @@ For questions or suggestions regarding KREATION please contact
 #####Version
 Version 0.1
 
+#####Download
+The software can be downloaded by using the following command
+```
+	git clone https://github.com/SchulzLab/KREATION
+```
+
+The downloaded folder should contain the following files/folder:
+*KREATION.py
+*config.txt
+*oases(folder)
+*src(folder)
+
 ##Requirements
-* cd-hit package (can be downloaded from http://weizhongli-lab.org/cd-hit/download.php)
+* cd-hit : clustering software which uses greedy algorithm to iteratively grow clusters. The software can be downloaded from http://weizhongli-lab.org/cd-hit/
 
 ##Config file structure
 * Line 1: Name of the program to be run
