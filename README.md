@@ -12,6 +12,10 @@ For questions or suggestions regarding KREATION please contact
 #####Version
 Version 0.1
 
+
+##Requirements
+* cd-hit : clustering software which uses greedy algorithm to iteratively grow clusters. The software can be downloaded from http://weizhongli-lab.org/cd-hit/
+
 #####Download
 The software can be downloaded by using the following command
 ```
@@ -24,38 +28,29 @@ The downloaded folder should contain the following files/folder:
 *oases(folder)
 *src(folder)
 
-##Requirements
-* cd-hit : clustering software which uses greedy algorithm to iteratively grow clusters. The software can be downloaded from http://weizhongli-lab.org/cd-hit/
+###Usage
+
+```
+ 	export PATH=/path-to-KREATION/:$PATH
+```
+
+```
+	export PATH=/path to cd-hit/:$PATH
+```
+
+`python KREATION.py -c config_file -o complete/path/outputDirectory -s step_size -r read_length`
+
+short | long params | explanation | note
+-----------|------------|--------
+-h | --help | show the help on screen |
+-c | --config | path to the config file (only text file) | required parameter
+-r | --read | read length | required parameter
+-s | --step |  kmer step size for the assembly process | default=2
+-o | --out  | path to the output directory, directory will be created if non-existent | default=KREATION folder 
 
 ##Config file structure
 * Line 1: Name of the program to be run
 * Line 2: Output file name from the assembly
 * Line 3: paramater name and the value of the min kmer
-* Line 4: parameter name for the max kmer (leave as blank if there is none)
-* Line 5: Rest of the command 
-
-Example config file is given with this package.
-
-##To run the software:
-* Update the config file
-* run the following commands
-
-  ```
- 	export PATH=/path-to-KREATION/:$PATH
-  ```
-
-  ```
-	export PATH=/path to cd-hit/:$PATH
-  ```
-
-* to run oases pipeline for the assembly:
-
-  ```
-	export PATH=/path-to-KREATION/oases:$PATH
-  ```
-
-* run the command
-
-  ```
-	python KREATION.py -c config_file_path/config.txt -s step_size -r read_length -o Output_file
-  ```
+* Line 4: Rest of the command 
+* Line 5: parameter name for the max kmer (leave as blank if there is none)

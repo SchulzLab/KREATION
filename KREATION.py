@@ -7,10 +7,12 @@ import commands
 
 class pipeline():
 	def getoptions(self):
+		stat1, cr=commands.getstatusoutput("which KREATION.py")
+		cuwodi = os.path.dirname(cr)
 		parser = OptionParser()
 		parser.add_option('-c', '--config',dest='config_file',help='Config file', action="store")
-		parser.add_option('-s', '--step',dest='ss',help='Step Size', action="store")
-		parser.add_option('-o', '--output',dest='out',help='Output Folder', action="store")
+		parser.add_option('-s', '--step',dest='ss',help='Step Size', action="store",default=2)
+		parser.add_option('-o', '--output',dest='out',help='Output Folder', action="store",default=cuwodi)
 		parser.add_option('-r', '--read',dest='read_length',help='Read Length', action="store")
 		(options, args) = parser.parse_args()
 		return options
