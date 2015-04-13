@@ -1,8 +1,10 @@
 #Program Name
-transabyss
+oases_pipeline.py
 #Output file name
-transabyss-final.fa
+transcripts.fa
 #minimum K
--k 21
+-m 21
 #rest of the command
---se "/home/ddurai/assembly/work/benchmark/analysis/human/MAQC/SOS/UHR/Final_Output/MAQC_Combined.fasta_corrected.fa" --length 100 --threads 10
+-d "MAQC_Combined.fasta_corrected.fa" -p ""
+#Max kmer
+-M
