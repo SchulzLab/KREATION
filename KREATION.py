@@ -42,13 +42,11 @@ for i in lines:
 	if(not(i.startswith('#'))):
 		if(count==0):
 			program_name = i
-			program_name = program_name.replace("**","")
 			program_name = program_name.replace("\n","")
 			pn = program_name.split(".")
 			pnn = pn[0]
 		elif(count==1):
 			filename=i
-			filename=filename.replace("**","")
 		else:
 			if(count==2):
 				min_k=int(i.split(" ")[-1])

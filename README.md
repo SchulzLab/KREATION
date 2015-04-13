@@ -53,9 +53,9 @@ We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http:/
 * Config file for oases assembler
 ```
 #Program Name
-**oases_pipeline.py
+oases_pipeline.py
 #Output file name
-**transcripts.fa
+transcripts.fa
 #Minimum K
 -m 21
 #Rest of the command
@@ -72,9 +72,9 @@ export PATH=/path-to-KREATION/oases/:$PATH
 
 ```
 #Program Name
-**SOAPdenovo-Trans-127mer all
+SOAPdenovo-Trans-127mer all
 #Output file name
-**transcripts.contig
+transcripts.contig
 #Minimum K
 -K 21
 #Rest of the command
