@@ -10,10 +10,10 @@ class pipeline():
 		stat1, cr=commands.getstatusoutput("which KREATION.py")
 		cuwodi = os.path.dirname(cr)
 		parser = OptionParser()
-		parser.add_option('-c', '--config',dest='config_file',help='Config file', action="store")
-		parser.add_option('-s', '--step',dest='ss',help='Step Size', action="store",default=2)
-		parser.add_option('-o', '--output',dest='out',help='Output Folder', action="store",default=cuwodi)
-		parser.add_option('-r', '--read',dest='read_length',help='Read Length', action="store")
+		parser.add_option('-c', '--config',dest='config_file',help='path to the config file (only text file)', action="store")
+		parser.add_option('-s', '--step',dest='ss',help='kmer step size for the assembly process (default=2)', action="store",default=2)
+		parser.add_option('-o', '--output',dest='out',help='path to the output directory, directory will be created if non-existent', action="store",default=cuwodi)
+		parser.add_option('-r', '--read',dest='read_length',help='read length (required)', action="store")
 		(options, args) = parser.parse_args()
 		return options
 
@@ -31,7 +31,7 @@ os.system("mkdir "+output)
 os.system("mkdir "+output+"/Assembly/")
 os.system("mkdir "+output+"/Cluster/")
 output1=output+"/Assembly/"
-os.chdir(output1)
+#os.chdir(output1)
 cnt=0
 pval=0
 
@@ -65,12 +65,14 @@ i = min_k
 os.system("mkdir "+output+"/Final/")	
 f=open(""+output+"/Final/p_value.txt","a")
 while i <= rl:
+	output2=output1+"/"+str(i)+"/"
+	os.system("mkdir "+output2)	
+	os.chdir(output2)
 	os.system("mkdir "+output+"/Cluster/"+str(i)+"/")
 	os.system("mkdir "+output+"/Cluster/Combined/")
 	command = program_name + " " + para_min_k + " " +str(i)+ " " +rest_command	
 	os.system(command)
-	print command
-	status, ts=commands.getstatusoutput("find "+output.strip()+" -name "+filename.strip())
+	status, ts=commands.getstatusoutput("find "+output2.strip()+" -name "+filename.strip())
 	#status, ts=commands.getstatusoutput("find "+output.strip()+" -name transcripts_"+str(i)+".fa")
 	dirname = os.path.dirname(ts)
 	#ts1=ts.replace("transcripts.fa","transcripts_org.fa")

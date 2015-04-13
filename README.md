@@ -78,8 +78,18 @@ transcripts.contig
 #Minimum K
 -K 21
 #Rest of the command
--s /MMCI/MS/DeNovoAssembly/work/SOS/Software/SOAPdenovo2-bin-LINUX-generic-r240/example.config -p 4 -o transcripts
+-s /path-to-config-file/example.config -p 4 -o transcripts
 ```
+
+* Config file for Trans-ABySS
+#Program Name
+transabyss
+#Output file name
+transabyss-final.fa
+#minimum K
+-k 21
+#rest of the command
+--se "/path-to-the-fasta-file/MAQC_Combined.fasta_corrected.fa" --length 100 --threads 10
 
 * Running KREATION
 ```

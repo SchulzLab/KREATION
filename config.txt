@@ -1,5 +1,8 @@
-**SOAPdenovo-Trans-127mer all
-**transcripts.contig
--K 21
--s /MMCI/MS/DeNovoAssembly/work/SOS/Software/SOAPdenovo2-bin-LINUX-generic-r240/example.config -p 4 -o transcripts
--M
+#Program Name
+transabyss
+#Output file name
+transabyss-final.fa
+#minimum K
+-k 21
+#rest of the command
+--se "/home/ddurai/assembly/work/benchmark/analysis/human/MAQC/SOS/UHR/Final_Output/MAQC_Combined.fasta_corrected.fa" --length 100 --threads 10
