@@ -82,6 +82,7 @@ transcripts.contig
 ```
 
 * Config file for Trans-ABySS
+```
 #Program Name
 transabyss
 #Output file name
@@ -90,6 +91,7 @@ transabyss-final.fa
 -k 21
 #rest of the command
 --se "/path-to-the-fasta-file/MAQC_Combined.fasta_corrected.fa" --length 100 --threads 10
+```
 
 * Running KREATION
 ```
