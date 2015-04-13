@@ -53,3 +53,21 @@ short | long params | explanation | note
 * Line 3: paramater name and the value of the min kmer
 * Line 4: Rest of the command 
 * Line 5: parameter name for the max kmer (leave as blank if there is none)
+
+####Example Run
+
+We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run
+
+* Config file for oases assembler
+```
+#Program Name
+**oases_pipeline.py
+#Output file name
+**transcripts.fa
+#minimum K
+-m 21
+#rest of the command
+-d "/home/ddurai/assembly/work/benchmark/analysis/human/MAQC/SOS/UHR/Final_Output/MAQC_Combined.fasta_corrected.fa" -p ""
+#Max k
+-M
+```   

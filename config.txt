@@ -1,5 +1,5 @@
-**oases_pipeline.py
-**transcripts.fa
--m 21
--d "/home/ddurai/assembly/work/benchmark/analysis/human/Human/SOS/Different_K/Final_Output/SRR332171.fasta_corrected.fa -shortPaired -interleaved" -p "-ins_length 201"
+**SOAPdenovo-Trans-127mer all
+**transcripts.contig
+-K 21
+-s /MMCI/MS/DeNovoAssembly/work/SOS/Software/SOAPdenovo2-bin-LINUX-generic-r240/example.config -p 4 -o transcripts
 -M

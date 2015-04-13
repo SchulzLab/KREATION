@@ -39,28 +39,29 @@ input_file = open(conf)
 lines = input_file.readlines()
 count=0
 for i in lines:
-	if(count==0):
-		program_name = i
-		program_name = program_name.replace("**","")
-		program_name = program_name.replace("\n","")
-		pn = program_name.split(".")
-		pnn = pn[0]
-	elif(count==1):
-		filename=i
-		filename=filename.replace("**","")
-	else:
-		if(count==2):
-			min_k=int(i.split(" ")[-1])
-			para_min_k = i.split(" ")[0]			
-			para_min_k=para_min_k.replace("*","")
-			para_min_k=para_min_k.replace("\n","")
-		if(count==3):
-			rest_command=i.replace("*","")
-			rest_command=rest_command.replace("\n","")
-		if(count==4):
-			com_max_k=i.replace("*","")
-			com_max_k=com_max_k.replace("\n","")
-	count=count+1
+	if(not(i.startswith('#'))):
+		if(count==0):
+			program_name = i
+			program_name = program_name.replace("**","")
+			program_name = program_name.replace("\n","")
+			pn = program_name.split(".")
+			pnn = pn[0]
+		elif(count==1):
+			filename=i
+			filename=filename.replace("**","")
+		else:
+			if(count==2):
+				min_k=int(i.split(" ")[-1])
+				para_min_k = i.split(" ")[0]			
+				para_min_k=para_min_k.replace("*","")
+				para_min_k=para_min_k.replace("\n","")
+			if(count==3):
+				rest_command=i.replace("*","")
+				rest_command=rest_command.replace("\n","")
+			if(count==4):
+				com_max_k=i.replace("*","")
+				com_max_k=com_max_k.replace("\n","")
+		count=count+1
 
 i = min_k
 os.system("mkdir "+output+"/Final/")	
@@ -70,14 +71,16 @@ while i <= rl:
 	os.system("mkdir "+output+"/Cluster/Combined/")
 	command = program_name + " " + para_min_k + " " +str(i)+ " " +rest_command	
 	os.system(command)
+	print command
 	status, ts=commands.getstatusoutput("find "+output.strip()+" -name "+filename.strip())
 	#status, ts=commands.getstatusoutput("find "+output.strip()+" -name transcripts_"+str(i)+".fa")
 	dirname = os.path.dirname(ts)
-	ts1=ts.replace("transcripts.fa","transcripts_org.fa")
+	#ts1=ts.replace("transcripts.fa","transcripts_org.fa")
+	ts1=ts.replace(str(filename.strip()),str(i)+"_transcripts_org.fa")
 	os.system("mv "+ts+" "+ts1)
 	cmd_rn = "perl "+cwd+"/src/rename_sequence.pl "+ts1+" "+str(i)+""	
 	os.system(cmd_rn)
-	os.system("cd-hit-est -i "+dirname+"/transcripts_org_clu.fa -o "+output+"/Cluster/"+str(i)+"/transcripts_clust.fa -c 0.99 -M 2000M -T 10 >> "+output+"/Cluster/"+str(i)+"/transcripts_clust.log")
+	os.system("cd-hit-est -i "+dirname+"/"+str(i)+"_transcripts_org_clu.fa -o "+output+"/Cluster/"+str(i)+"/transcripts_clust.fa -c 0.99 -M 2000M -T 10 >> "+output+"/Cluster/"+str(i)+"/transcripts_clust.log")
 	os.system("perl "+cwd+"/src/Combine_files.pl "+output+" "+str(min_k)+" "+str(i)+" "+str(cl1.ss))
 	os.system("cd-hit-est -i "+output+"/Cluster/Combined/combine.fa -o "+output+"/Cluster/Combined/combined_clust.fa -c 0.99 -M 2000M -T 10 >> "+output+"/Cluster/Combined/combined_clust_"+str(i)+".log")
 	s,t = commands.getstatusoutput("perl "+cwd+"/src/calculate_extended.pl "+output+"/Cluster/Combined/combined_clust.fa "+str(min_k)+" "+str(i)+" "+str(cl1.ss))
