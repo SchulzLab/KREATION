@@ -94,7 +94,7 @@ export PATH=/path-to-KREATION/oases/:$PATH
 
 * Output folder
 The output folder should contain three sub folders with the following names:
-** Assembly (contains the assembly generated from each kmer)
-** Cluster (contains the clustering results)
-** Final (contains the final assembly and a report file) 
+	** Assembly (contains the assembly generated from each kmer)
+	** Cluster (contains the clustering results)
+	** Final (contains the final assembly and a report file) 
 
