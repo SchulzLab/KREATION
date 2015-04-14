@@ -12,7 +12,8 @@ We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value
 Version 0.1
 
 #####Tested assemblers
-KREATION has been tested on the following assemblers
+KREATION has been tested on the following assemblers\\
+
 1. [Oases 0.2] (http://www.ebi.ac.uk/~zerbino/oases/)
 2. [SOAPdenovo-Trans] (http://soap.genomics.org.cn/SOAPdenovo-Trans.html)
 3. [Trans-ABySS 1.5.2] (http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss)
