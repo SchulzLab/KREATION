@@ -60,7 +60,7 @@ The software can be downloaded by using the following command
 The downloaded folder should contain the following files/folder:
 *	KREATION.py
 *	config.txt
-*	oases(folder)
+*	Oases(folder)
 *	src(folder)
 
 ##KREATION parameters
@@ -99,7 +99,7 @@ transcripts.fa
 ```   
 Note: The current version has an inbuilt merge function. Also the default value for max kmer is 31. To avoid this KREATION requires that the users use the modified version of oases pipeline (supplied with this package). To do this type the following command in your terminal.
 ```
-export PATH=/path-to-KREATION/oases/:$PATH
+export PATH=/path-to-KREATION/Oases/:$PATH
 ```
 The modified version does not require a max kmer value and also does not implement the oases merge function. 
 
