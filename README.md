@@ -5,18 +5,28 @@ We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value
 
 #####Algorithm
 ```
-1. Input : read_length *l*, step_size *s*, minimum_k *km*
-2. *k*=*km*
-3. *i*=1
-4. *last*=1
-5. *Tp*=null
-5. repeat
-6. 	*Tk*=Assembly(*k*)
-7. 	*C*=Cluster(*Tp*,*Tk*)
-8. 	*ci*=log(extended(*C*,*Tk*))
-9. 	
+1.	Input : read_length l, step_size s, minimum_k km
+2. 	k=km
+3.	i=1
+4.	last=1
+5.	Tp=null
+5.	repeat
+6. 		Tk = Assembly(k)
+7. 		C = Cluster(Tp,Tk)
+8. 		ci = log(extended(C,Tk))
+9. 		M0 = linear_model((k1,c1),(k2,c2),...,(ki,ci),B0)
+10.		M1 = linear_model((k1,c1),(k2,c2),...,(ki,ci),B0,B1)
+11.		p = F_statistics(Mo,M1)
+12.		if(p<last)
+13.			break
+14.		else
+15.			k = k+s
+16.			i++
+17.			Tp = Tp U Tk
+18.			last = p
+19.		end if
+20.	until k<=l 
 ```
-
 
 #####Version
 Version 0.1
@@ -79,20 +89,19 @@ We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http:/
 * Config file for oases assembler
 ```
 #Program Name
-oases_pipeline.py
+oases_pipeline_2.py
 #Output file name
 transcripts.fa
 #Minimum K
 -m 21
 #Rest of the command
 -d "/path-to-the-fasta-file/MAQC_Combined.fasta_corrected.fa" -p ""
-#Max k
--M
 ```   
-Note: To use oases assembler please use the oases pipeline script provided with this package. For this type the following command in your command prompt:
+Note: The current version has an inbuilt merge function. Also the default value for max kmer is 31. To avoid this KREATION requires that the users use the modified version of oases pipeline (supplied with this package). To do this type the following command in your terminal.
 ```
 export PATH=/path-to-KREATION/oases/:$PATH
 ```
+The modified version does not require a max kmer value and also does not implement the oases merge function. 
 
 * Config file for SOAPTrans assembler
 
