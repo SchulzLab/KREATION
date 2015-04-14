@@ -7,7 +7,7 @@ KREATION or Kmer Range EstiMATION is an algorithm which predicts the best stoppi
 #### Does it predict the starting kmer?
 - The prediction of the starting kmer is currently not supported by KREATION. We are working on that and will include it in the future version of KREATION
 
-#### In the paper reads are error corrected with SEECER before using KREATION. Is it necessary to run KREATION?
+#### In the paper reads are error corrected with SEECER before using KREATION. Is it a requirement for running KREATION?
 - No error correction before running KREATION is not necessary, but we recommend to error correct reads nevertheless, as it leads to improved assembly results.
 
 #### Will KREATION work for genome assembly?
