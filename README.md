@@ -39,7 +39,7 @@ KREATION has been tested on the following assemblers
 3. [Trans-ABySS 1.5.2] (http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss)
 
 #####Contact
-For questions or suggestions regarding KREATION please contact
+For questions or suggestions regarding KREATION please checkout the [FAQ](https://github.com/SchulzLab/KREATION/blob/master/FAQ.md) or contact
 
 * Dilip A Durai (ddurai_at_contact.mmci.uni-saarland.de)
 * Marcel H Schulz (mschulz_at_mmci.uni-saarland.de)
