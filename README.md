@@ -3,8 +3,19 @@ De novo assembly of short read sequences is one of the most used methods to stud
 
 We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value to start, KREATION calculates the contribution of each assembly. KREATION stops at a kmer value at which no further assemblies are required.
 
+#####Algorithm
+1. Input : read_length *l*, step_size *s*, minimum_k *k_m*
+
+
+
 #####Version
 Version 0.1
+
+#####Tested assemblers
+KREATION has been tested on the following assemblers
+1. [Oases 0.2] (http://www.ebi.ac.uk/~zerbino/oases/)
+2. [SOAPdenovo-Trans] (http://soap.genomics.org.cn/SOAPdenovo-Trans.html)
+3. [Trans-ABySS 1.5.2] (http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss)
 
 #####Contact
 For questions or suggestions regarding KREATION please contact
@@ -13,7 +24,11 @@ For questions or suggestions regarding KREATION please contact
 * Marcel H Schulz (mschulz_at_mmci.uni-saarland.de)
 
 ##Requirements
-* cd-hit : clustering software which uses greedy algorithm to iteratively grow clusters. The software can be downloaded from http://weizhongli-lab.org/cd-hit/
+* [cd-hit](http://weizhongli-lab.org/cd-hit/)
+* R (version >=2.14.1)
+* knitR
+* Python
+* Perl
 
 ##Download
 The software can be downloaded by using the following command
