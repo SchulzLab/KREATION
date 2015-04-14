@@ -4,7 +4,16 @@ De novo assembly of short read sequences is one of the most used methods to stud
 We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value to start, KREATION calculates the contribution of each assembly. KREATION stops at a kmer value at which no further assemblies are required.
 
 #####Algorithm
-1. Input : read_length *l*, step_size *s*, minimum_k *k_m*
+1. Input : read_length *l*, step_size *s*, minimum_k *km*
+2. *k*=*km*
+3. *i*=1
+4. *last*=1
+5. *Tp*=null
+5. repeat
+6. 	*Tk*=Assembly(*k*)
+7. 	*C*=Cluster(*Tp*,*Tk*)
+8. 	*ci*=log(extended(*C*,*Tk*))
+9. 	
 
 
 
@@ -12,7 +21,7 @@ We introduce KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value
 Version 0.1
 
 #####Tested assemblers
-KREATION has been tested on the following assemblers\\
+KREATION has been tested on the following assemblers
 
 1. [Oases 0.2] (http://www.ebi.ac.uk/~zerbino/oases/)
 2. [SOAPdenovo-Trans] (http://soap.genomics.org.cn/SOAPdenovo-Trans.html)
