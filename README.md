@@ -47,9 +47,7 @@ For questions or suggestions regarding KREATION please checkout the [FAQ](https:
 ##Requirements
 * [cd-hit](http://weizhongli-lab.org/cd-hit/)
 * R (version >=2.14.1)
-* knitR
-* Python
-* Perl
+* knitR (R package)
 
 ##Download
 The software can be downloaded by using the following command
@@ -140,6 +138,7 @@ transabyss-final.fa
 `python KREATION.py -c config_file.txt -o complete/path/outputDirectory -s 2 -r 35`
 
 * Output folder
+
 The output folder should contain three sub folders with the following names:
 	* Assembly (contains the assembly generated from each kmer)
 	* Cluster (contains the clustering results)
