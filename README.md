@@ -84,7 +84,7 @@ short | long params | explanation | note
 
 We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been errro corrected using SEECER error correction algorithm
 
-* Config file for oases assembler
+##### Config file for oases assembler
 ```
 #Program Name
 oases_pipeline_2.py
@@ -101,7 +101,7 @@ export PATH=/path-to-KREATION/Oases/:$PATH
 ```
 The modified version does not require a max kmer value and also does not implement the oases merge function. 
 
-* Config file for SOAPTrans assembler
+##### Config file for SOAPdenovo-Trans assembler
 
 ```
 #Program Name
@@ -114,7 +114,7 @@ transcripts.contig
 -s /path-to-config-file/example.config -p 4 -o transcripts
 ```
 
-* Config file for Trans-ABySS
+##### Config file for Trans-ABySS
 ```
 #Program Name
 transabyss
@@ -126,7 +126,7 @@ transabyss-final.fa
 --se "/path-to-the-fasta-file/MAQC_Combined.fasta_corrected.fa" --length 100 --threads 10
 ```
 
-* Running KREATION
+##### Running KREATION
 ```
  	export PATH=/path-to-KREATION/:$PATH
 ```
@@ -137,10 +137,11 @@ transabyss-final.fa
 
 `python KREATION.py -c config_file.txt -o complete/path/outputDirectory -s 2 -r 35`
 
-* Output folder
+##### Output folder
 
 The output folder should contain three sub folders with the following names:
-	* Assembly (contains the assembly generated from each kmer)
-	* Cluster (contains the clustering results)
-	* Final (contains the final assembly and a report file) 
+
+* Assembly (contains the assembly generated from each kmer)
+* Cluster (contains the clustering results)
+* Final (contains the final assembly and a report file) 
 
