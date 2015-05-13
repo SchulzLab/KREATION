@@ -47,7 +47,6 @@ For questions or suggestions regarding KREATION please checkout the [FAQ](https:
 ##Requirements
 * [cd-hit](http://weizhongli-lab.org/cd-hit/)
 * R (version >=2.14.1)
-* knitR (R package)
 
 ##Download
 The software can be downloaded by using the following command
@@ -82,7 +81,7 @@ short | long params | explanation | note
 
 ####Example Run
 
-We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been errro corrected using SEECER error correction algorithm
+We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been error corrected using the SEECER error correction algorithm.
 
 ##### Config file for oases assembler
 ```
