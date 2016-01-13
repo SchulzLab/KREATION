@@ -102,7 +102,6 @@ while i <= rl:
 			kmer=kmer+","+str(i)
 		else:
 			kmer=str(i)	
-	print(extended)
 	if cnt > 3:	
 		s1,t1 = commands.getstatusoutput("Rscript "+cwd+"/src/RegressionKMerSelection.R "+kmer+" "+extended)
 		temp=((t1.split("\n"))[-1]).split(" ");
