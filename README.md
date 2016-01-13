@@ -5,27 +5,27 @@ We introduce the KREATION (Kmer Range EstimATION) algorithm. Given a minimum k v
 
 #####Algorithm
 ```
-1.	Input : read_length l, step_size s, minimum_k km
-2. 	k=km
-3.	i=1
-4.	last=1
-5.	Tp=null
-5.	repeat
-6. 		Tk = Assembly(k)
-7. 		C = Cluster(Tp,Tk)
-8. 		ci = log(extended(C,Tk))
-9. 		M0 = linear_model((k1,c1),(k2,c2),...,(ki,ci),B0)
-10.		M1 = linear_model((k1,c1),(k2,c2),...,(ki,ci),B0,B1)
-11.		p = F_statistics(Mo,M1)
-12.		if(p<last)
-13.			break
-14.		else
-15.			k = k+s
-16.			i++
-17.			Tp = Tp U Tk
-18.			last = p
-19.		end if
-20.	until k<=l 
+1.	Input : read_length l, step_size s, minimum_k km, threshold t
+2. 	Initializations : k=km
+3.	                  i=1
+4.	                  last=0
+5.	                  Tp=null
+6.	Steps:
+              repeat
+7. 		          Tk = Assembly(k)                            #Perform assembly for a single value k
+8. 		          C =  Cluster(Tp,Tk)                         #Cluster the assembly with previous assemblies
+9. 		          ci = log(extended(C,Tk))                    #Calculate number of extended clusters
+10. 		          M0 = lm((k1,c1),...,(k(i-1),c(i-1)))        #Fit a linear model till k values of i-1th iteration 
+11.		          p =  d_score(M0,last)                       #compute the d_score for the current iteration
+12.		          if(p>d_score)                               #check for the cut-off
+13.			             break
+14.		          else                                        #Update the variables
+15.			             k = k+s
+16.			             i++
+17.			             Tp = Tp U Tk
+18.			             last = last + p
+19.		          end if
+20.	till k<=l 
 ```
 
 #####Version
@@ -71,6 +71,7 @@ short | long params | explanation | note
 -r | --read | read length | required parameter
 -s | --step |  kmer step size for the assembly process | default=2
 -o | --out  | path to the output directory, directory will be created if non-existent | default=KREATION folder 
+-t | --threshold | Threshold value for d_score | default=0.01
 
 ##Config file structure
 * Line 1: Name of the program to be run
@@ -143,4 +144,3 @@ The output folder should contain three sub folders with the following names:
 * Assembly (contains the assembly generated from each kmer)
 * Cluster (contains the clustering results)
 * Final (contains the final assembly and a report file) 
-
