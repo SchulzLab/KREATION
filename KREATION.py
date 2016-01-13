@@ -4,6 +4,7 @@ import optparse
 from optparse import OptionParser
 from optparse import Option, OptionValueError
 import commands
+import math
 
 class pipeline():
 	def getoptions(self):
@@ -14,6 +15,7 @@ class pipeline():
 		parser.add_option('-s', '--step',dest='ss',help='kmer step size for the assembly process (default=2)', action="store",default=2)
 		parser.add_option('-o', '--output',dest='out',help='path to the output directory, directory will be created if non-existent', action="store",default=cuwodi)
 		parser.add_option('-r', '--read',dest='read_length',help='read length (required)', action="store")
+		parser.add_option('-t', '--threshold',dest='cut_off',help='cut_off for d_score', action="store",default=0.01)		
 		(options, args) = parser.parse_args()
 		return options
 
@@ -21,6 +23,7 @@ stat, kr=commands.getstatusoutput("which KREATION.py")
 cwd = os.path.dirname(kr)
 cl = pipeline()
 cl1 = cl.getoptions()
+threshold=float(cl1.cut_off)
 conf = os.path.abspath(cl1.config_file)
 output = cl1.out
 output = os.path.abspath(output) 
@@ -85,31 +88,33 @@ while i <= rl:
 	os.system("cd-hit-est -i "+output+"/Cluster/Combined/combine.fa -o "+output+"/Cluster/Combined/combined_clust.fa -c 0.99 -M 2000M -T 10 >> "+output+"/Cluster/Combined/combined_clust_"+str(i)+".log")
 	s,t = commands.getstatusoutput("perl "+cwd+"/src/calculate_extended.pl "+output+"/Cluster/Combined/combined_clust.fa "+str(min_k)+" "+str(i)+" "+str(cl1.ss))
 	ex=t.split("\t")
-	
+		
 	if int(ex[-1]) != 0 or ex[-1]=="NaN":
 		cnt=cnt+1
 		if extended!="":
-			extended=extended+","+str(ex[-1])
+			#ex[-1]=float(math.log(ex[-1]))
+			extended=extended+","+str((ex[-1]))
 		else:
-			extended=str(ex[-1])
-	
+			#ex[-1]=float(math.log(ex[-1]))
+			extended=ex[-1]
+				
 		if kmer !="":
 			kmer=kmer+","+str(i)
 		else:
 			kmer=str(i)	
-	
-	if cnt > 2:	
+	print(extended)
+	if cnt > 3:	
 		s1,t1 = commands.getstatusoutput("Rscript "+cwd+"/src/RegressionKMerSelection.R "+kmer+" "+extended)
 		temp=((t1.split("\n"))[-1]).split(" ");
 		f.write(str(i)+"	"+str(temp[-1])+"	"+str(ex[-1])+"\n");
 		if temp[-1].strip() != "NaN":		
-			if pval > float(temp[-1].strip()):
-				print "local maxima reached"
-				print "Stopped at k-mer = "+str(int(i)-int(cl1.ss))
+			if float(temp[-1].strip()) > threshold:
+				print "Threshold reached"
+				print "Stopped at k-mer = "+str(int(i))
 				os.system("mv "+output+"/Cluster/Combined/combine_p.fa "+output+"/transcripts.fa")
 				break
-			else:
-				pval=float(temp[-1].strip())
+			#else:
+			#	pval=float(temp[-1].strip())
 	else:
 		f.write(str(i)+"	0"+"	"+str(ex[-1])+"\n")
 	i=i+int(cl1.ss)
