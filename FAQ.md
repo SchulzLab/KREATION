@@ -24,4 +24,5 @@ KREATION or Kmer Range EstiMATION is an algorithm which predicts the best stoppi
 *(This answer is based on a assumption that you used KREATION and updated the config files correctly)* 
 
 #### How do I cite KREATION
-cite as : Dilip A. Durai and Marcel H. Schulz. Informed kmer selection for de novo transcriptome assembly. submitted
+Cite as:
+Durai DA, Schulz MH. (Apr 2016) Informed kmer selection for de novo transcriptome assembly. *Bioinformatics*  [doi:10.1093/bioinformatics/btw217](http://bioinformatics.oxfordjournals.org/content/early/2016/04/27/bioinformatics.btw217.short?rss=1)
