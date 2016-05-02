@@ -144,3 +144,8 @@ The output folder should contain three sub folders with the following names:
 * Assembly (contains the assembly generated from each kmer)
 * Cluster (contains the clustering results)
 * Final (contains the final assembly and a report file) 
+* 
+##Citation
+Please cite the paper as:
+
+Durai DA, Schulz MH. (Apr 2016) Informed kmer selection for de novo transcriptome assembly. *Bioinformatics*  [doi:10.1093/bioinformatics/btw217](http://bioinformatics.oxfordjournals.org/content/early/2016/04/27/bioinformatics.btw217.short?rss=1)
