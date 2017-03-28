@@ -1,9 +1,9 @@
-##About
+## About
 De novo transcriptome assembly of short read sequences is an important ingredient to many RNA-seq analyses. Common applications include sequencing of non-model organisms, cancer or meta transcriptomes. Most of these assemblers use the de Bruijn graph (DBG) as the underlying data structure. A fundamental parameter with large influence on assembly quality with DBGs is the exact word length k. As such no single kmer value leads to optimal results which has led to the wide acceptance of multi-kmer transcriptome assemblers. For these, DBGs over different k-mer values are build and the assemblies merged to improve sensitivity. In most of the cases a suboptimal selection of kmer values is used by practitioners which results in suboptimal assembly.
 
 We introduce the KREATION (Kmer Range EstimATION) algorithm. Given a minimum k value to start, KREATION calculates the contribution of each assembly. KREATION stops at a kmer value at which no further assemblies are required thereby removing the kmer selection problem of the user and potentially saving hours of runtime for kmers not contributing to the final merged assembly.
 
-#####Algorithm
+##### Algorithm
 ```
 1.	Input : read_length l, step_size s, minimum_k km, threshold t
 2. 	Initializations : k=km
@@ -28,27 +28,27 @@ We introduce the KREATION (Kmer Range EstimATION) algorithm. Given a minimum k v
 20.	till k<=l 
 ```
 
-#####Version
+##### Version
 Version 0.1
 
-#####Tested assemblers
+##### Tested assemblers
 KREATION has been tested on the following assemblers (see below for configuration)
 
 1. [Oases 0.2] (http://www.ebi.ac.uk/~zerbino/oases/)
 2. [SOAPdenovo-Trans] (http://soap.genomics.org.cn/SOAPdenovo-Trans.html)
 3. [Trans-ABySS 1.5.2] (http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss)
 
-#####Contact
+##### Contact
 For questions or suggestions regarding KREATION please checkout the [FAQ](https://github.com/SchulzLab/KREATION/blob/master/FAQ.md) or contact
 
 * Dilip A Durai (ddurai_at_contact.mmci.uni-saarland.de)
 * Marcel H Schulz (mschulz_at_mmci.uni-saarland.de)
 
-##Requirements
+## Requirements
 * [cd-hit](http://weizhongli-lab.org/cd-hit/)
 * R (version >=2.14.1)
 
-##Download
+## Download
 The software can be downloaded by using the following command
 ```
 	git clone https://github.com/SchulzLab/KREATION
@@ -60,7 +60,7 @@ The downloaded folder should contain the following files/folder:
 *	Oases(folder)
 *	src(folder)
 
-##KREATION parameters
+## KREATION parameters
 
 `python KREATION.py --help`
 
@@ -73,14 +73,14 @@ short | long params | explanation | note
 -o | --out  | path to the output directory, directory will be created if non-existent | default=KREATION folder 
 -t | --threshold | Threshold value for d_score | default=0.01
 
-##Config file structure
+## Config file structure
 * Line 1: Name of the program to be run
 * Line 2: Output file name from the assembly
 * Line 3: paramater name and the value of the min kmer
 * Line 4: Rest of the command 
 * Line 5: parameter name for the max kmer (leave as blank if there is none)
 
-####Example Run
+#### Example Run
 
 We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been error corrected using the SEECER error correction algorithm.
 
@@ -145,7 +145,7 @@ The output folder should contain three sub folders with the following names:
 * Cluster (contains the clustering results)
 * Final (contains the final assembly and a report file) 
 
-##Citation
+## Citation
 Please cite the paper as:
 
 Durai DA, Schulz MH. (Apr 2016) Informed kmer selection for de novo transcriptome assembly. *Bioinformatics*  [doi:10.1093/bioinformatics/btw217](http://bioinformatics.oxfordjournals.org/content/early/2016/04/27/bioinformatics.btw217.short?rss=1)
