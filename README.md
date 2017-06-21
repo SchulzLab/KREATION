@@ -34,9 +34,9 @@ Version 0.1
 ##### Tested assemblers
 KREATION has been tested on the following assemblers (see below for configuration)
 
-1. [Oases 0.2] (http://www.ebi.ac.uk/~zerbino/oases/)
-2. [SOAPdenovo-Trans] (http://soap.genomics.org.cn/SOAPdenovo-Trans.html)
-3. [Trans-ABySS 1.5.2] (http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss)
+1. [Oases 0.2](http://www.ebi.ac.uk/~zerbino/oases/)
+2. [SOAPdenovo-Trans](http://soap.genomics.org.cn/SOAPdenovo-Trans.html)
+3. [Trans-ABySS 1.5.2](http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss)
 
 ##### Contact
 For questions or suggestions regarding KREATION please checkout the [FAQ](https://github.com/SchulzLab/KREATION/blob/master/FAQ.md) or contact
@@ -82,7 +82,7 @@ short | long params | explanation | note
 
 #### Example Run
 
-We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been error corrected using the SEECER error correction algorithm.
+We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been error corrected using the [SEECER](http://sb.cs.cmu.edu/seecer/) error correction algorithm.
 
 ##### Config file for oases assembler
 ```
