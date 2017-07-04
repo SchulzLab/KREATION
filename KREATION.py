@@ -69,10 +69,13 @@ os.system("mkdir "+output+"/Final/")
 f=open(""+output+"/Final/p_value.txt","a")
 while i <= rl:
 	output2=output1+"/"+str(i)+"/"
-	os.system("mkdir "+output2)	
+	if(not(os.path.exists(output2))):	
+		os.system("mkdir "+output2)	
 	os.chdir(output2)
-	os.system("mkdir "+output+"/Cluster/"+str(i)+"/")
-	os.system("mkdir "+output+"/Cluster/Combined/")
+	if(not(os.path.exists(output+"/Cluster/"+str(i)))):	
+		os.system("mkdir "+output+"/Cluster/"+str(i)+"/")
+	if(not(os.path.exists(output+"/Cluster/Combined"))):
+		os.system("mkdir "+output+"/Cluster/Combined/")
 	command = program_name + " " + para_min_k + " " +str(i)+ " " +rest_command	
 	os.system(command)
 	status, ts=commands.getstatusoutput("find "+output2.strip()+" -name "+filename.strip())
