@@ -94,7 +94,19 @@ transcripts.fa
 -m 21
 #Rest of the command
 -d "/path-to-the-fasta-file/MAQC_Combined.fasta_corrected.fa" -p ""
+```
+If the input file is a fastq file:
+```
+#Program Name
+oases_pipeline_2.py
+#Output file name
+transcripts.fa
+#Minimum K
+-m 21
+#Rest of the command
+-d "-fastq /path-to-the-fasta-file/MAQC_Combined.fq" -p ""
 ```   
+
 Note: The current version has an inbuilt merge function. Also the default value for max kmer is 31. To avoid this KREATION requires that the users use the modified version of oases pipeline (supplied with this package). To do this type the following command in your terminal.
 ```
 export PATH=/path-to-KREATION/Oases/:$PATH
