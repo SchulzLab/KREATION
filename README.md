@@ -84,6 +84,8 @@ short | long params | explanation | note
 
 We use the dataset MAQC UHR (SRX016367) downloaded from SRA run database (http://www.ncbi.nlm.nih.gov/sra/SRX016367[accn]) for this test run. The dataset has been error corrected using the [SEECER](http://sb.cs.cmu.edu/seecer/) error correction algorithm.
 
+**NOTE**: Below we give some example config files for some of the assemblers we tested KREATION with. However, we ask you to consult the manual files of the assemblers for exact parametrization.
+
 ##### Config file for oases assembler
 ```
 #Program Name
